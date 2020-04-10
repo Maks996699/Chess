@@ -1,4 +1,6 @@
+
 #include "Queen.h"
+
 
 Queen::Queen(int playerNum) : Piece(playerNum)
 {
@@ -9,7 +11,7 @@ Queen::~Queen()
 {
 }
 
-bool Queen::checkRules()
+bool Queen::checkRules(int x, int y, int nx, int ny)
 {
 	return false;
 }

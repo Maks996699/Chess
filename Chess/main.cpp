@@ -5,6 +5,9 @@ int main() {
 	Game* game = new Game();
 
 	game->start();
+	game->getUserCommand();
+	system("cls");
+	game->showBoard();
 
 	//while (game->running()) {
 

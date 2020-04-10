@@ -6,7 +6,7 @@ class Bishop :
 public:
 	Bishop(int playerNum);
 	~Bishop();
-	bool checkRules();
+	bool checkRules(int x, int y, int nx, int ny);
 	void show();
 private:
 

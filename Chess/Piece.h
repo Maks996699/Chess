@@ -1,13 +1,15 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include <cmath>
+
 class Piece
 {
 public:
 	Piece(int playerNum);
 	Piece();
 	virtual ~Piece();
-	virtual bool checkRules(char posCh, int posInt, char nextCh, int nextInt);
+	virtual bool checkRules(int x, int y, int nx, int ny);
 	virtual void show();
 
 

@@ -9,7 +9,7 @@ Bishop::~Bishop()
 {
 }
 
-bool Bishop::checkRules()
+bool Bishop::checkRules(int x, int y, int nx, int ny)
 {
 	return false;
 }

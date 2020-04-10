@@ -1,4 +1,6 @@
+
 #include "Piece.h"
+
 
 Piece::Piece(int playerNum)
 {
@@ -14,7 +16,7 @@ Piece::~Piece()
 {
 }
 
-bool Piece::checkRules(char posCh, int posInt, char nextCh, int nextInt)
+bool Piece::checkRules(int x, int y, int nx, int ny)
 {
 	return false;
 }

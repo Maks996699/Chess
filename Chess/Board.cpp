@@ -1,5 +1,6 @@
 #include "Board.h"
 
+
 Board::Board()
 {
 }
@@ -10,35 +11,37 @@ Board::~Board()
 
 void Board::show()
 {
-	std::string letterLine = "   a| b| c| d| e| f| g| h";
+	std::string letterLine = "   a  b  c  d  e  f  g  h";
 	std::string topLine = "  _______________________";
-	std::string dividingLine = " |--|--|--|--|--|--|--|--|";
+	std::string dividingLine = "-|--|--|--|--|--|--|--|--|-";
 	std::string bottomLine = " |__|__|__|__|__|__|__|__|";
 	std::string dividingSymbol = "|";
 	std::string spaceSymbol = " ";
-	std::cout << letterLine << std::endl <<
-				  topLine << std::endl;
-	for (int i = 0; i < size - 1; i++)
+	std::string doubleSpace = "  ";
+
+	std::cout << letterLine << std::endl;
+	std::cout << dividingLine << std::endl;
+	for (int i = 0; i < size; i++)
 	{
 		std::cout << i + 1;
 		for (int j = 0; j < size; j++)
 		{
 			std::cout << dividingSymbol;
-			board[i][j]->show();
+			if (board[i][j])
+			{
+				board[i][j]->show();
+			}
+			else
+			{
+				std::cout << doubleSpace;
+			}
 		}
-		std::cout << dividingSymbol << std::endl;
+
+		std::cout << dividingSymbol  << i + 1 << std::endl;
 		std::cout << dividingLine << std::endl;
 	}
 
-	std::cout << size;
-	for (int j = 0; j < size; j++)
-	{
-		std::cout << dividingSymbol;
-		board[size-1][j]->show();
-	}
-	std::cout << dividingSymbol << std::endl;
-	std::cout << bottomLine << std::endl;
-
+	std::cout << letterLine << std::endl;
 }
 
 void Board::startPos()
@@ -88,7 +91,7 @@ void Board::startPos()
 			}
 			else
 			{
-				board[i][j] = new Piece();
+				board[i][j] = nullptr;
 			}
 		}
 	}

@@ -1,5 +1,6 @@
 #pragma once
 #include <fstream>
+#include <iostream>
 #include "Board.h"
 
 class Game
@@ -12,10 +13,14 @@ public:
 	void load();
 	void restart();
 	bool running();
-	static Board* brd;
+	bool getUserCommand();
+	void showBoard();
+	static Board* boardObj;
 
 private:
 	bool isRunning;
-
+	bool checkPos(const std::string &pos);
+	int chToInt(const char& ch);
+	int numChToInt(const char& ch);
 };
 

@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-#include "Piece.h"
 #include "Queen.h"
 #include "King.h"
 #include "Bishop.h"
@@ -17,8 +16,8 @@ public:
 	void startPos();
 	Piece* getPoint(int x, int y);
 	void movePiece(int x, int y, int nx, int ny);
-private:
 	static const int size = 8;
+private:
 	Piece* board[size][size];
 };
 

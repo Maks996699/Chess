@@ -6,7 +6,7 @@ class Pawn :
 public:
 	Pawn(int playerNum);
 	~Pawn();
-	bool checkRules();
+	bool checkRules(int x, int y, int nx, int ny);
 	void show();
 private:
 
