@@ -6,7 +6,7 @@ class Rook :
 public:
 	Rook(int playerNum);
 	~Rook();
-	bool checkRules();
+	bool checkRules(int x, int y, int nx, int ny);
 	void show();
 private:
 

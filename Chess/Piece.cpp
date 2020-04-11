@@ -25,3 +25,8 @@ void Piece::show()
 {
 	std::cout << "  ";
 }
+
+int Piece::getPlayerNum()
+{
+	return playerNum;
+}

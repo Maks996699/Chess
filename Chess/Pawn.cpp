@@ -20,13 +20,43 @@ bool Pawn::checkRules(int x, int y, int nx, int ny)
 				return true;
 			return false;
 		}
-		else if ((y + 2 == ny) && x == 1 && x == nx)
+		else if ((y + 2 == ny) && y == 1 && x == nx)
 		{
 			if (Game::boardObj->getPoint(nx, ny) == nullptr)
 				return true;
 			return false;
 		}
 		else if ((ny - y == 1) && (abs(nx - x) == 1))
+		{
+			if (Game::boardObj->getPoint(nx, ny) != nullptr)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
+		}
+	}
+	else if (playerNum == 2)
+	{
+		if ((y - 1 == ny) && x == nx)
+		{
+			if (Game::boardObj->getPoint(nx, ny) == nullptr)
+				return true;
+			return false;
+		}
+		else if ((y - 2 == ny) && y == 6 && x == nx)
+		{
+			if (Game::boardObj->getPoint(nx, ny) == nullptr)
+				return true;
+			return false;
+		}
+		else if ((y - ny == 1) && (abs(nx - x) == 1))
 		{
 			if (Game::boardObj->getPoint(nx, ny) != nullptr)
 			{

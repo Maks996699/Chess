@@ -6,7 +6,7 @@ class Knight :
 public:
 	Knight(int playerNum);
 	~Knight();
-	bool checkRules();
+	bool checkRules(int x, int y, int nx, int ny);
 	void show();
 
 private:

@@ -11,6 +11,7 @@ public:
 	virtual ~Piece();
 	virtual bool checkRules(int x, int y, int nx, int ny);
 	virtual void show();
+	int getPlayerNum();
 
 
 protected:

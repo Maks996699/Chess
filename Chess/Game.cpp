@@ -45,14 +45,19 @@ bool Game::getUserCommand()
 			int nx = chToInt(end[0]);
 			int ny = numChToInt(end[1]) - 1;
 
-			if (boardObj->getPoint(x, y)->checkRules(x, y, nx, ny))
+			if (boardObj->getPoint(x, y)->checkRules(x, y, nx, ny) &&
+				(boardObj->getPoint(x, y)->getPlayerNum() != boardObj->getPoint(nx, ny)->getPlayerNum()))
+			{
 				boardObj->movePiece(x, y, nx, ny);
+			}
 			else
+			{
 				std::cout << "Wrong move";
+			}
 		}
 		else
 		{
-			std::cout << "Bad comm";
+			std::cout << "Wrong position";
 		}
 	}
 	else 
@@ -69,13 +74,11 @@ void Game::showBoard()
 
 bool Game::checkPos(const std::string& pos)
 {
-	if (pos[0] != 'a' && pos[0] != 'b' && pos[0] != 'c' && pos[0] != 'd' &&
-		pos[0] != 'e' && pos[0] != 'f' && pos[0] != 'g' && pos[0] != 'h' &&
-		pos[1] < 1 && pos[1] > 8)
+	if (pos[0] >= 'a' && pos[0] <= 'h' && pos[1] >= '1' && pos[1] <= '8')
 	{
-		return false;
+		return true;
 	}
-	return true;
+	return false;
 	
 }
 

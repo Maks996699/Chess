@@ -9,8 +9,10 @@ Knight::~Knight()
 {
 }
 
-bool Knight::checkRules()
+bool Knight::checkRules(int x, int y, int nx, int ny)
 {
+	if (((x - nx) * (x - nx) + (y - ny) * (y - ny)) == 5)
+		return true;
 	return false;
 }
 

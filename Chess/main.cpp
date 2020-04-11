@@ -5,13 +5,16 @@ int main() {
 	Game* game = new Game();
 
 	game->start();
-	game->getUserCommand();
-	system("cls");
-	game->showBoard();
 
-	//while (game->running()) {
-
-	//}
+	char buff;
+	while (game->running()) {
+		game->getUserCommand();
+		fflush(stdin);
+		_getch();
+		fflush(stdin);
+		system("cls");
+		game->showBoard();
+	}
 
 	delete game;
 
