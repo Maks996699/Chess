@@ -10,7 +10,7 @@ Pawn::~Pawn()
 {
 }
 
-bool Pawn::checkRules(int x, int y, int nx, int ny)
+bool Pawn::checkRules(const int& x, const int& y, const int& nx, const int& ny)
 {
 	if (playerNum == 1)
 	{
@@ -28,7 +28,7 @@ bool Pawn::checkRules(int x, int y, int nx, int ny)
 		}
 		else if ((ny - y == 1) && (abs(nx - x) == 1))
 		{
-			if (Game::boardObj->getPoint(nx, ny) != nullptr)
+			if (!checkTeamKill(nx, ny))
 			{
 				return true;
 			}
@@ -58,7 +58,7 @@ bool Pawn::checkRules(int x, int y, int nx, int ny)
 		}
 		else if ((y - ny == 1) && (abs(nx - x) == 1))
 		{
-			if (Game::boardObj->getPoint(nx, ny) != nullptr)
+			if (!checkTeamKill(nx, ny))
 			{
 				return true;
 			}

@@ -1,4 +1,5 @@
 #include "Knight.h"
+#include "Game.h"
 
 Knight::Knight(int playerNum) : Piece(playerNum)
 {
@@ -9,10 +10,13 @@ Knight::~Knight()
 {
 }
 
-bool Knight::checkRules(int x, int y, int nx, int ny)
+bool Knight::checkRules(const int& x, const int& y, const int& nx, const int& ny)
 {
-	if (((x - nx) * (x - nx) + (y - ny) * (y - ny)) == 5)
+	if ((((x - nx) * (x - nx) + (y - ny) * (y - ny)) == 5) &&
+		(!checkTeamKill(nx, ny)))
+	{
 		return true;
+	}
 	return false;
 }
 

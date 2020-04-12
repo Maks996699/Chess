@@ -6,10 +6,10 @@ class King :
 public:
 	King(int playerNum);
 	~King();
-	bool checkRules();
+	bool checkRules(const int& x, const int& y, const int& nx, const int& ny);
 	void show();
-private:
 
+private:
 
 };
 

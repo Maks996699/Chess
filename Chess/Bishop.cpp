@@ -10,8 +10,13 @@ Bishop::~Bishop()
 {
 }
 
-bool Bishop::checkRules(int x, int y, int nx, int ny)
+bool Bishop::checkRules(const int& x, const int& y, const int& nx, const int& ny)
 {
+	if (checkTeamKill(nx, ny))
+	{
+		return false;
+	}
+
 	int step = std::abs(nx - x);
 	if (((nx - x) * (nx - x)) == ((ny - y) * (ny - y)))
 	{

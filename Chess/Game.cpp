@@ -40,14 +40,14 @@ bool Game::getUserCommand()
 
 		if (checkPos(start) && checkPos(end))
 		{
-			int x = chToInt(start[0]);
-			int y = numChToInt(start[1]) - 1;
-			int nx = chToInt(end[0]);
-			int ny = numChToInt(end[1]) - 1;
+			const int x = chToInt(start[0]);
+			const int y = numChToInt(start[1]) - 1;
+			const int nx = chToInt(end[0]);
+			const int ny = numChToInt(end[1]) - 1;
 
-			if (boardObj->getPoint(x, y)->checkRules(x, y, nx, ny) &&
-				(boardObj->getPoint(x, y)->getPlayerNum() != boardObj->getPoint(nx, ny)->getPlayerNum()))
+			if ((boardObj->getPoint(x, y) != nullptr) && (boardObj->getPoint(x, y)->checkRules(x, y, nx, ny)))
 			{
+
 				boardObj->movePiece(x, y, nx, ny);
 			}
 			else

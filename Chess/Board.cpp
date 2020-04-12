@@ -46,8 +46,8 @@ void Board::show()
 
 void Board::startPos()
 {
-	int BlackPlayer = 2;
-	int WhitePlayer = 1;
+	const int BlackPlayer = 2;
+	const int WhitePlayer = 1;
 	for (int i = 0; i < size; i++)
 	{
 		for (int j = 0; j < size; j++)
@@ -97,7 +97,7 @@ void Board::startPos()
 	}
 }
 
-Piece* Board::getPoint(int x, int y)
+Piece* Board::getPoint(const int& x, const int& y)
 {
 	if (x < size && y < size)
 	{
@@ -106,11 +106,11 @@ Piece* Board::getPoint(int x, int y)
 	//error
 }
 
-void Board::movePiece(int x, int y, int nx, int ny)
+void Board::movePiece(const int& x, const int& y, const int& nx, const int& ny)
 {
 	delete board[ny][nx];
 	board[ny][nx] = nullptr;
 
 	board[ny][nx] = board[y][x];
-	board[y][x] = new Piece();
+	board[y][x] = nullptr;
 }

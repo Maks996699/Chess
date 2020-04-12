@@ -14,8 +14,8 @@ public:
 	~Board();
 	void show();
 	void startPos();
-	Piece* getPoint(int x, int y);
-	void movePiece(int x, int y, int nx, int ny);
+	Piece* getPoint(const int& x, const int& y);
+	void movePiece(const int& x, const int& y, const int& nx, const int& ny);
 	static const int size = 8;
 private:
 	Piece* board[size][size];
