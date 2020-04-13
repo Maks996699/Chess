@@ -18,6 +18,7 @@ public:
 	static Board* boardObj;
 
 private:
+	int playerTurn;
 	bool isRunning;
 	bool checkPos(const std::string &pos);
 	int chToInt(const char& ch);

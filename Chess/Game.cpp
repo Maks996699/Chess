@@ -12,11 +12,16 @@ Game::~Game()
 
 void Game::start()
 {
-
+	playerTurn = 1;
 	isRunning = true;
 	//check file
 	Game::boardObj->startPos();
 	Game::boardObj->show();
+}
+
+void Game::restart()
+{
+	boardObj->startPos();
 }
 
 bool Game::running()
@@ -26,6 +31,15 @@ bool Game::running()
 
 bool Game::getUserCommand()
 {
+	if (playerTurn == 1)
+	{
+		std::cout << "White turn" << std::endl;
+	}
+	else
+	{
+		std::cout << "Black turn" << std::endl;
+	}
+
 	std::cout << std::endl << "What your wonna?(move,load,save,restart): ";
 
 	std::string command;
@@ -47,8 +61,15 @@ bool Game::getUserCommand()
 
 			if ((boardObj->getPoint(x, y) != nullptr) && (boardObj->getPoint(x, y)->checkRules(x, y, nx, ny)))
 			{
-
-				boardObj->movePiece(x, y, nx, ny);
+				if (boardObj->getPoint(x, y)->getPlayerNum() == playerTurn)
+				{
+					boardObj->movePiece(x, y, nx, ny);
+					playerTurn = playerTurn % 2 + 1;
+				}
+				else
+				{
+					std::cout << "Not your turn" << std::endl;
+				}
 			}
 			else
 			{
@@ -59,6 +80,10 @@ bool Game::getUserCommand()
 		{
 			std::cout << "Wrong position";
 		}
+	}
+	else if (command == "restart")
+	{
+		restart();
 	}
 	else 
 	{
